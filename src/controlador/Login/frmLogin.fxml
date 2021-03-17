@@ -1,14 +1,51 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="controlador.Login.FrmLogin"
-            prefHeight="400.0" prefWidth="600.0">
-
-</AnchorPane>
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="520.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.Login.frmLoginController">
+   <left>
+      <AnchorPane prefHeight="400.0" prefWidth="228.0" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fx:id="logoMesutView" fitHeight="400.0" fitWidth="228.0" layoutY="32.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../images/LogoMesut.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+   </left>
+   <right>
+      <AnchorPane prefHeight="400.0" prefWidth="332.0" style="-fx-background-color: #ECECE7;" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fx:id="logoGNView" fitHeight="56.0" fitWidth="86.0" layoutX="103.0" layoutY="35.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../images/LogoGN.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="31.0" layoutY="132.0" text="Usuario" />
+            <TextField fx:id="tfUsuario" layoutX="31.0" layoutY="149.0" prefHeight="25.0" prefWidth="228.0" promptText="Usuario" />
+            <Label layoutX="31.0" layoutY="184.0" text="Contraseña" />
+            <PasswordField fx:id="tfContraseña" layoutX="31.0" layoutY="201.0" prefHeight="25.0" prefWidth="228.0" promptText="Contraseña" />
+            <Button fx:id="btnIngresar" layoutX="35.0" layoutY="279.0" mnemonicParsing="false" onAction="#btnIngresarEnAccion" prefHeight="26.0" prefWidth="223.0" style="-fx-background-color: rgb(17,105,176);" text="Ingresar" textFill="#fffefe">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Button>
+            <Button fx:id="btnCancelar" layoutX="35.0" layoutY="319.0" mnemonicParsing="false" onAction="#btnCancelarEnAccion" prefHeight="26.0" prefWidth="223.0" style="-fx-background-color: rgb(17,105,176);" text="Cancelar" textFill="#fffefe">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Button>
+            <Label fx:id="lblMensajeIngreso" alignment="CENTER" layoutX="31.0" layoutY="253.0" prefHeight="17.0" prefWidth="228.0" textFill="RED" />
+         </children>
+      </AnchorPane>
+   </right>
+</BorderPane>

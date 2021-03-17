@@ -2,6 +2,7 @@
   <library name="lib">
     <CLASSES>
       <root url="file://E:/Programación/Java/Fundamentos/javafx-sdk-11.0.2/lib" />
+      <root url="jar://$PROJECT_DIR$/../../../../Program Files (x86)/MySQL/Connector J 8.0/mysql-connector-java-8.0.23.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>
