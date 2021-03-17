@@ -24,17 +24,20 @@ import java.net.URL;
 
 public class frmLoginController implements Initializable {
 
-    @FXML private Button btnCancelar;
-    @FXML private Label lblMensajeIngreso;
-    @FXML private ImageView logoMesutView;
-    @FXML private ImageView logoGNView;
-    @FXML private TextField tfUsuario;
-    @FXML private PasswordField tfContraseña;
-    @FXML private Button btnIngresar;
-
-    //Colecciones
-    private Conexion conexion;
-
+    @FXML
+    private Button btnCancelar;
+    @FXML
+    private Label lblMensajeIngreso;
+    @FXML
+    private ImageView logoMesutView;
+    @FXML
+    private ImageView logoGNView;
+    @FXML
+    private TextField tfUsuario;
+    @FXML
+    private PasswordField tfContraseña;
+    @FXML
+    private Button btnIngresar;
 
     //Metodos
     @Override
@@ -68,24 +71,26 @@ public class frmLoginController implements Initializable {
         Connection connectDB = connectNow.establecerConexion();
 
         try {
-            PreparedStatement statement2 = connectDB.prepareStatement("SELECT permisos, estado " +
+            PreparedStatement statement = connectDB.prepareStatement("SELECT permisos, estado " +
                     "FROM trabajadores " +
                     "WHERE usuario = '" + tfUsuario.getText() + "' " +
                     "AND contraseña = '" + tfContraseña.getText() + "'");
-            ResultSet queryResult = statement2.executeQuery();
+            ResultSet queryResult = statement.executeQuery();
 
-            if(queryResult.next()){
+            if (queryResult.next()) {
                 String permiso = queryResult.getString("permisos");
                 String estado = queryResult.getString("estado");
 
-                if (permiso.equals("admin") && estado.equals("activo")){
+                if (permiso.equals("admin") && estado.equals("activo")) {
                     abrirPanelAdmin();
-                }else if (permiso.equals("consultor") && estado.equals("activo")){
+                } else if (permiso.equals("consultor") && estado.equals("activo")) {
                     abrirPanelConsultor();
-                }else if (permiso.equals("mecanico") && estado.equals("activo")){
+                } else if (permiso.equals("mecanico") && estado.equals("activo")) {
                     abrirPanelMecanico();
+                } else {
+                    lblMensajeIngreso.setText("Usuario Inactivo");
                 }
-            }else{
+            } else {
                 lblMensajeIngreso.setText("Ingreso invalido, intenta nuevamente");
                 tfUsuario.setText("");
                 tfContraseña.setText("");
@@ -102,16 +107,17 @@ public class frmLoginController implements Initializable {
         Parent root = FXMLLoader.load(getClass().getResource("../Panel/Admin/frmAdmin.fxml"));
         Stage adminStage = new Stage();
         adminStage.initStyle(StageStyle.UNDECORATED);
-        adminStage.setScene(new Scene(root, 520,400));
+        adminStage.setScene(new Scene(root, 520, 400));
         adminStage.show();
     }
+
     public void abrirPanelConsultor() throws IOException {
         Stage stage = (Stage) btnIngresar.getScene().getWindow();
         stage.close();
         Parent root = FXMLLoader.load(getClass().getResource("../Panel/Consultor/frmConsultor.fxml"));
         Stage adminStage = new Stage();
         adminStage.initStyle(StageStyle.UNDECORATED);
-        adminStage.setScene(new Scene(root, 520,400));
+        adminStage.setScene(new Scene(root, 520, 400));
         adminStage.show();
     }
 
@@ -121,7 +127,7 @@ public class frmLoginController implements Initializable {
         Parent root = FXMLLoader.load(getClass().getResource("../Panel/Mecanico/frmMecanico.fxml"));
         Stage adminStage = new Stage();
         adminStage.initStyle(StageStyle.UNDECORATED);
-        adminStage.setScene(new Scene(root, 520,400));
+        adminStage.setScene(new Scene(root, 520, 400));
         adminStage.show();
     }
 
