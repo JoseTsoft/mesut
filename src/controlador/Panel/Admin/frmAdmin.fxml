@@ -2,6 +2,7 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -11,8 +12,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.Panel.Admin.frmAdminController">
+<AnchorPane stylesheets="@Style.css" prefHeight="600.0" prefWidth="1000.0" styleClass="" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.Panel.Admin.frmAdminController">
    <children>
       <BorderPane layoutX="218.0" layoutY="52.0" prefHeight="600.0" prefWidth="1000.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <top>
@@ -20,7 +20,7 @@
                <children>
                   <Pane prefHeight="25.0" prefWidth="1000.0" style="-fx-background-color: rgb(17,105,176);" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
-                        <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="975.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="Exit" fitHeight="25.0" fitWidth="25.0" layoutX="975.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../../../../images/exit.png" />
                            </image>
@@ -29,12 +29,12 @@
                   </Pane>
                   <HBox alignment="CENTER" layoutX="200.0" layoutY="25.0" prefHeight="50.0" prefWidth="800.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="200.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="25.0">
                      <children>
-                        <Button mnemonicParsing="false" prefHeight="35.0" prefWidth="150.0" style="-fx-background-color: rgb(197,197,197);" text="Dashboard" textFill="WHITE">
+                        <Button mnemonicParsing="false" prefHeight="35.0" prefWidth="150.0" style="-fx-background-color: rgb(197,197,197);" styleClass="menuItem" text="Dashboard" textFill="WHITE">
                            <HBox.margin>
                               <Insets left="20.0" />
                            </HBox.margin>
                            <graphic>
-                              <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fx:id="dashboardView" fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@../../../../images/report.png" />
                                  </image>
@@ -44,7 +44,7 @@
                               <Font size="15.0" />
                            </font>
                         </Button>
-                        <Button layoutX="10.0" layoutY="18.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="150.0" style="-fx-background-color: rgb(197,197,197);" text="Trabajadores" textFill="WHITE">
+                        <Button layoutX="10.0" layoutY="18.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="150.0" style="-fx-background-color: rgb(197,197,197);" styleClass="menuItem" text="Trabajadores" textFill="WHITE">
                            <HBox.margin>
                               <Insets left="20.0" />
                            </HBox.margin>
@@ -52,14 +52,14 @@
                               <Font size="15.0" />
                            </font>
                            <graphic>
-                              <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fx:id="workerView" fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@../../../../images/workers.png" />
                                  </image>
                               </ImageView>
                            </graphic>
                         </Button>
-                        <Button layoutX="140.0" layoutY="18.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="150.0" style="-fx-background-color: rgb(197,197,197);" text="Clientes" textFill="WHITE">
+                        <Button layoutX="140.0" layoutY="18.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="150.0" style="-fx-background-color: rgb(197,197,197);" styleClass="menuItem" text="Clientes" textFill="WHITE">
                            <HBox.margin>
                               <Insets left="20.0" />
                            </HBox.margin>
@@ -67,14 +67,14 @@
                               <Font size="15.0" />
                            </font>
                            <graphic>
-                              <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fx:id="clientView" fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@../../../../images/people.png" />
                                  </image>
                               </ImageView>
                            </graphic>
                         </Button>
-                        <Button layoutX="270.0" layoutY="18.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="150.0" style="-fx-background-color: rgb(197,197,197);" text="Equipos" textFill="WHITE">
+                        <Button layoutX="270.0" layoutY="18.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="150.0" style="-fx-background-color: rgb(197,197,197);" styleClass="menuItem" text="Equipos" textFill="WHITE">
                            <HBox.margin>
                               <Insets left="20.0" />
                            </HBox.margin>
@@ -82,7 +82,7 @@
                               <Font size="15.0" />
                            </font>
                            <graphic>
-                              <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fx:id="truckView" fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@../../../../images/truck.png" />
                                  </image>
@@ -91,35 +91,135 @@
                         </Button>
                      </children>
                   </HBox>
+                  <Label fx:id="Menu" layoutX="14.0" layoutY="38.0" text="Menu" textFill="WHITE">
+                     <graphic>
+                        <ImageView fx:id="menuView" fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../../images/menu.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="MenuBack" layoutX="14.0" layoutY="38.0" text="Menu" textFill="WHITE">
+                     <graphic>
+                        <ImageView fx:id="menuBackView" fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../../images/menu.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
                </children>
             </AnchorPane>
          </top>
          <left>
-            <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+            <AnchorPane fx:id="slider" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                <children>
-                  <VBox alignment="CENTER" layoutX="29.0" layoutY="45.0" prefHeight="525.0" prefWidth="200.0" style="-fx-background-color: rgb(17,105,176);" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <VBox alignment="TOP_CENTER" layoutX="29.0" layoutY="45.0" prefHeight="525.0" prefWidth="200.0" style="-fx-background-color: rgb(17,105,176);" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
-                        <Button alignment="CENTER" mnemonicParsing="false" style="-fx-background-color: rgb(17,105,176);" text="Button" textFill="WHITE">
+                        <Button alignment="BASELINE_LEFT" mnemonicParsing="false" prefHeight="35.0" prefWidth="206.0" style="-fx-background-color: rgb(17,105,176);" styleClass="sidebarItem" text="Agregar Trabajador" textFill="WHITE">
                            <font>
                               <Font size="15.0" />
                            </font>
+                           <graphic>
+                              <ImageView fx:id="add1" fitHeight="25.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../../images/add.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <VBox.margin>
+                              <Insets top="10.0" />
+                           </VBox.margin>
                         </Button>
-                        <Button alignment="CENTER" mnemonicParsing="false" style="-fx-background-color: rgb(17,105,176);" text="Button" textFill="WHITE">
+                        <Button alignment="BASELINE_LEFT" mnemonicParsing="false" prefHeight="35.0" prefWidth="206.0" style="-fx-background-color: rgb(17,105,176);" styleClass="sidebarItem" text="Solicitud de materiales" textFill="WHITE">
                            <font>
                               <Font size="15.0" />
                            </font>
+                           <graphic>
+                              <ImageView fx:id="add2" fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../../images/add.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <VBox.margin>
+                              <Insets top="10.0" />
+                           </VBox.margin>
                         </Button>
-                        <Button alignment="CENTER" mnemonicParsing="false" style="-fx-background-color: rgb(17,105,176);" text="Button" textFill="WHITE">
+                        <Button alignment="BASELINE_LEFT" mnemonicParsing="false" prefHeight="35.0" prefWidth="206.0" style="-fx-background-color: rgb(17,105,176);" styleClass="sidebarItem" text="Equipos" textFill="WHITE">
                            <font>
                               <Font size="15.0" />
                            </font>
+                           <graphic>
+                              <ImageView fx:id="add3" fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../../images/add.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <VBox.margin>
+                              <Insets top="10.0" />
+                           </VBox.margin>
                         </Button>
-                        <Button alignment="CENTER" mnemonicParsing="false" style="-fx-background-color: rgb(17,105,176);" text="Button" textFill="WHITE">
+                        <Button alignment="BASELINE_LEFT" mnemonicParsing="false" prefHeight="35.0" prefWidth="206.0" style="-fx-background-color: rgb(17,105,176);" styleClass="sidebarItem" text="Clientes" textFill="WHITE">
                            <font>
                               <Font size="15.0" />
                            </font>
+                           <graphic>
+                              <ImageView fx:id="add4" fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../../images/add.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <VBox.margin>
+                              <Insets top="10.0" />
+                           </VBox.margin>
+                        </Button>
+                        <Button alignment="BASELINE_LEFT" layoutX="10.0" layoutY="175.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="206.0" style="-fx-background-color: rgb(17,105,176);" styleClass="sidebarItem" text="Productos" textFill="WHITE">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                           <graphic>
+                              <ImageView fx:id="add5" fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../../images/add.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <VBox.margin>
+                              <Insets top="10.0" />
+                           </VBox.margin>
+                        </Button>
+                        <Button alignment="BASELINE_LEFT" layoutX="10.0" layoutY="210.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="206.0" style="-fx-background-color: rgb(17,105,176);" styleClass="sidebarItem" text="Backup" textFill="WHITE">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                           <graphic>
+                              <ImageView fx:id="backupView" fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../../images/data.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <VBox.margin>
+                              <Insets top="10.0" />
+                           </VBox.margin>
                         </Button>
                      </children>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <padding>
+                        <Insets top="30.0" />
+                     </padding>
                   </VBox>
                </children>
             </AnchorPane>

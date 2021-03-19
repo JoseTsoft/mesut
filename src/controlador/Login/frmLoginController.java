@@ -107,7 +107,7 @@ public class frmLoginController implements Initializable {
         Parent root = FXMLLoader.load(getClass().getResource("../Panel/Admin/frmAdmin.fxml"));
         Stage adminStage = new Stage();
         adminStage.initStyle(StageStyle.UNDECORATED);
-        adminStage.setScene(new Scene(root, 520, 400));
+        adminStage.setScene(new Scene(root,  1000, 600));
         adminStage.show();
     }
 
@@ -117,7 +117,7 @@ public class frmLoginController implements Initializable {
         Parent root = FXMLLoader.load(getClass().getResource("../Panel/Consultor/frmConsultor.fxml"));
         Stage adminStage = new Stage();
         adminStage.initStyle(StageStyle.UNDECORATED);
-        adminStage.setScene(new Scene(root, 520, 400));
+        adminStage.setScene(new Scene(root, 1000, 600));
         adminStage.show();
     }
 
@@ -127,7 +127,7 @@ public class frmLoginController implements Initializable {
         Parent root = FXMLLoader.load(getClass().getResource("../Panel/Mecanico/frmMecanico.fxml"));
         Stage adminStage = new Stage();
         adminStage.initStyle(StageStyle.UNDECORATED);
-        adminStage.setScene(new Scene(root, 520, 400));
+        adminStage.setScene(new Scene(root, 1000, 600));
         adminStage.show();
     }
 
