@@ -4,11 +4,20 @@ import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
+import javafx.collections.ObservableList;
+
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 
 public class Trabajadores {
 
+
+
+
     public Trabajadores(int idTrabajadores, String nombre, String apellido, String mail, String cargo, String permisos,
-                        String usuario, String contraseña, String area) {
+                        String usuario, String password, String area) {
         this.idTrabajadores = new SimpleIntegerProperty(idTrabajadores);
         this.nombre = new SimpleStringProperty(nombre);
         this.apellido = new SimpleStringProperty(apellido);
@@ -16,7 +25,7 @@ public class Trabajadores {
         this.cargo = new SimpleStringProperty(cargo);
         this.permisos = new SimpleStringProperty(permisos);
         this.usuario = new SimpleStringProperty(usuario);
-        this.contraseña = new SimpleStringProperty(contraseña);
+        this.password = new SimpleStringProperty(password);
         this.area = new SimpleStringProperty(area);
     }
 
@@ -27,11 +36,12 @@ public class Trabajadores {
     private StringProperty cargo;
     private StringProperty permisos;
     private StringProperty usuario;
-    private StringProperty contraseña;
+    private StringProperty password;
     private StringProperty area;
 
     public Integer getIdTrabajadores() {
         return idTrabajadores.get();
+
     }
 
     public IntegerProperty idTrabajadoresProperty() {
@@ -114,16 +124,16 @@ public class Trabajadores {
         this.usuario.set(usuario);
     }
 
-    public String getContraseña() {
-        return contraseña.get();
+    public String getPassword() {
+        return password.get();
     }
 
-    public StringProperty contraseñaProperty() {
-        return contraseña;
+    public StringProperty passwordProperty() {
+        return password;
     }
 
-    public void setContraseña(String contraseña) {
-        this.contraseña.set(contraseña);
+    public void setPassword(String password) {
+        this.password.set(password);
     }
 
     public String getArea() {
@@ -136,5 +146,15 @@ public class Trabajadores {
 
     public void setArea(String area) {
         this.area.set(area);
+    }
+
+    public static void llenarInformacion(Connection connection, ObservableList<Trabajadores> lista) throws SQLException {
+        try {
+            Statement statement = connection.createStatement();
+            ResultSet resultado = statement.executeQuery("");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
     }
 }

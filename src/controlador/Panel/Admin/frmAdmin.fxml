@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane stylesheets="@Style.css" prefHeight="600.0" prefWidth="1000.0" styleClass="" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.Panel.Admin.frmAdminController">
+<AnchorPane prefHeight="600.0" prefWidth="1000.0" styleClass="" stylesheets="@Style.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.Panel.Admin.frmAdminController">
    <children>
       <BorderPane layoutX="218.0" layoutY="52.0" prefHeight="600.0" prefWidth="1000.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <top>
@@ -30,9 +30,6 @@
                   <HBox alignment="CENTER" layoutX="200.0" layoutY="25.0" prefHeight="50.0" prefWidth="800.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="200.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="25.0">
                      <children>
                         <Button mnemonicParsing="false" prefHeight="35.0" prefWidth="150.0" style="-fx-background-color: rgb(197,197,197);" styleClass="menuItem" text="Dashboard" textFill="WHITE">
-                           <HBox.margin>
-                              <Insets left="20.0" />
-                           </HBox.margin>
                            <graphic>
                               <ImageView fx:id="dashboardView" fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -91,9 +88,9 @@
                         </Button>
                      </children>
                   </HBox>
-                  <Label fx:id="Menu" layoutX="14.0" layoutY="38.0" text="Menu" textFill="WHITE">
+                  <Label fx:id="MenuBack" layoutX="14.0" layoutY="38.0" styleClass="menuItem" text="Menu" textFill="WHITE">
                      <graphic>
-                        <ImageView fx:id="menuView" fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="menuBackView" fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../../../../images/menu.png" />
                            </image>
@@ -103,9 +100,9 @@
                         <Font size="15.0" />
                      </font>
                   </Label>
-                  <Label fx:id="MenuBack" layoutX="14.0" layoutY="38.0" text="Menu" textFill="WHITE">
+                  <Label fx:id="Menu" layoutX="14.0" layoutY="38.0" styleClass="menuItem" text="Menu" textFill="WHITE">
                      <graphic>
-                        <ImageView fx:id="menuBackView" fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="menuView" fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../../../../images/menu.png" />
                            </image>
@@ -121,7 +118,7 @@
          <left>
             <AnchorPane fx:id="slider" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                <children>
-                  <VBox alignment="TOP_CENTER" layoutX="29.0" layoutY="45.0" prefHeight="525.0" prefWidth="200.0" style="-fx-background-color: rgb(17,105,176);" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <VBox alignment="TOP_CENTER" layoutX="29.0" layoutY="45.0" prefHeight="525.0" prefWidth="806.0" style="-fx-background-color: rgb(17,105,176);" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
                         <Button alignment="BASELINE_LEFT" mnemonicParsing="false" prefHeight="35.0" prefWidth="206.0" style="-fx-background-color: rgb(17,105,176);" styleClass="sidebarItem" text="Agregar Trabajador" textFill="WHITE">
                            <font>
@@ -213,6 +210,11 @@
                               <Insets top="10.0" />
                            </VBox.margin>
                         </Button>
+                        <Label text="Desarrollado por José Sáez" textFill="WHITE">
+                           <VBox.margin>
+                              <Insets top="200.0" />
+                           </VBox.margin>
+                        </Label>
                      </children>
                      <opaqueInsets>
                         <Insets />
@@ -224,6 +226,9 @@
                </children>
             </AnchorPane>
          </left>
+         <center>
+            <AnchorPane prefHeight="525.0" prefWidth="716.0" BorderPane.alignment="CENTER" />
+         </center>
       </BorderPane>
    </children>
 </AnchorPane>

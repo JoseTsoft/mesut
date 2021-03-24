@@ -17,30 +17,22 @@ import java.util.ResourceBundle;
 
 public class frmAdminController implements Initializable {
 
-    @FXML
-    private ImageView Exit;
-    @FXML
-    private Label Menu;
-    @FXML
-    private Label MenuBack;
-    @FXML
-    private AnchorPane slider;
-    @FXML
-    private ImageView add1;
-    @FXML
-    private ImageView add2;
-    @FXML
-    private ImageView add3;
-    @FXML
-    private ImageView add4;
-    @FXML
-    private ImageView add5;
-    @FXML
-    private ImageView backupView;
-    @FXML
-    private ImageView menuView;
-    @FXML
-    private ImageView menuBackView;
+    @FXML private ImageView Exit;
+    @FXML private Label Menu;
+    @FXML private Label MenuBack;
+    @FXML private AnchorPane slider;
+    @FXML private ImageView add1;
+    @FXML private ImageView add2;
+    @FXML private ImageView add3;
+    @FXML private ImageView add4;
+    @FXML private ImageView add5;
+    @FXML private ImageView backupView;
+    @FXML private ImageView menuView;
+    @FXML private ImageView menuBackView;
+    @FXML private ImageView dashboardView;
+    @FXML private ImageView workerView;
+    @FXML private ImageView clientView;
+    @FXML private ImageView truckView;
 
 
     @Override
@@ -49,31 +41,43 @@ public class frmAdminController implements Initializable {
         //Imagenes
         File archivoAdd = new File("images/add.png");
         Image imagenAdd = new Image(archivoAdd.toURI().toString());
+        File archivoBackup = new File("images/data.png");
+        Image imagenBackup = new Image(archivoBackup.toURI().toString());
+        File archivoMenu = new File("images/menu.png");
+        Image imagenMenu = new Image(archivoMenu.toURI().toString());
+        File archivoExit = new File("images/exit.png");
+        Image imagenExit = new Image(archivoExit.toURI().toString());
+        File archivoDashboard = new File("images/report.png");
+        Image imagenDashboard = new Image(archivoDashboard.toURI().toString());
+        File archivoWorker = new File("images/workers.png");
+        Image imagenWoker = new Image(archivoWorker.toURI().toString());
+        File archivoClient = new File("images/people.png");
+        Image imagenClient = new Image(archivoClient.toURI().toString());
+        File archivoTruck = new File("images/truck.png");
+        Image imagenTruck = new Image(archivoTruck.toURI().toString());
+
         add1.setImage(imagenAdd);
         add2.setImage(imagenAdd);
         add3.setImage(imagenAdd);
         add4.setImage(imagenAdd);
         add5.setImage(imagenAdd);
-
-        File archivoBackup = new File("images/data.png");
-        Image imagenBackup = new Image(archivoBackup.toURI().toString());
         backupView.setImage(imagenBackup);
-
-        File archivoMenu = new File("images/menu.png");
-        Image imagenMenu = new Image(archivoMenu.toURI().toString());
         menuView.setImage(imagenMenu);
         menuBackView.setImage(imagenMenu);
-
-        File archivoExit = new File("images/exit.png");
-        Image imagenExit = new Image(archivoExit.toURI().toString());
         Exit.setImage(imagenExit);
+        dashboardView.setImage(imagenDashboard);
+        workerView.setImage(imagenWoker);
+        clientView.setImage(imagenClient);
+        truckView.setImage(imagenTruck);
 
 
         Exit.setOnMouseClicked(event -> {
             System.exit(0);
         });
 
+        //Movimiento de Slider==========================================================================================
         slider.setTranslateX(-200);
+
         Menu.setOnMouseClicked(event -> {
             TranslateTransition slide = new TranslateTransition();
             slide.setDuration(Duration.seconds(0.4));
@@ -89,7 +93,6 @@ public class frmAdminController implements Initializable {
                 MenuBack.setVisible(true);
             });
         });
-
         MenuBack.setOnMouseClicked(event -> {
             TranslateTransition slide = new TranslateTransition();
             slide.setDuration(Duration.seconds(0.4));
@@ -105,6 +108,6 @@ public class frmAdminController implements Initializable {
                 MenuBack.setVisible(false);
             });
         });
-
+        //==============================================================================================================
     }
 }
