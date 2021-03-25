@@ -1,17 +1,24 @@
-package controlador.Panel.Admin;
+package controlador;
 
 import javafx.animation.TranslateTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import javafx.util.Duration;
 
 import java.awt.*;
 import java.io.File;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -26,6 +33,8 @@ public class frmAdminController implements Initializable {
     @FXML private ImageView add3;
     @FXML private ImageView add4;
     @FXML private ImageView add5;
+    @FXML private ImageView add6;
+    @FXML private ImageView add7;
     @FXML private ImageView backupView;
     @FXML private ImageView menuView;
     @FXML private ImageView menuBackView;
@@ -33,6 +42,9 @@ public class frmAdminController implements Initializable {
     @FXML private ImageView workerView;
     @FXML private ImageView clientView;
     @FXML private ImageView truckView;
+
+    //botones
+    @FXML private Button btnAddTrabajador;
 
 
     @Override
@@ -61,6 +73,8 @@ public class frmAdminController implements Initializable {
         add3.setImage(imagenAdd);
         add4.setImage(imagenAdd);
         add5.setImage(imagenAdd);
+        add6.setImage(imagenAdd);
+        add7.setImage(imagenAdd);
         backupView.setImage(imagenBackup);
         menuView.setImage(imagenMenu);
         menuBackView.setImage(imagenMenu);
@@ -110,4 +124,16 @@ public class frmAdminController implements Initializable {
         });
         //==============================================================================================================
     }
+    @FXML
+    void abrirFormTrabajadores(ActionEvent event) throws IOException {
+        Stage stage = (Stage) btnAddTrabajador.getScene().getWindow();
+        stage.close();
+        Parent root = FXMLLoader.load(getClass().getResource("../vistas/frmTrabajadores.fxml"));
+        Stage adminStage = new Stage();
+        adminStage.initStyle(StageStyle.UNDECORATED);
+        adminStage.setScene(new Scene(root,   716, 525));
+        adminStage.show();
+    }
+
+
 }
