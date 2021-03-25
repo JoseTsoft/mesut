@@ -13,24 +13,10 @@ import java.sql.Statement;
 
 public class Areas {
 
-    private IntegerProperty idAreas;
     private StringProperty area;
 
-    public Areas(Integer idAreas, String area) {
-        this.idAreas = new SimpleIntegerProperty(idAreas);
+    public Areas(String area) {
         this.area = new SimpleStringProperty(area);
-    }
-
-    public int getIdAreas() {
-        return idAreas.get();
-    }
-
-    public IntegerProperty idAreasProperty() {
-        return idAreas;
-    }
-
-    public void setIdAreas(int idAreas) {
-        this.idAreas.set(idAreas);
     }
 
     public String getArea() {
@@ -50,9 +36,7 @@ public class Areas {
             Statement statement = connection.createStatement();
             ResultSet resultado = statement.executeQuery("SELECT  * FROM areas");
             while (resultado.next()){
-                lista.add(new Areas(
-                        resultado.getInt("idAreas"),
-                        resultado.getString("area")));
+                lista.add(new Areas(resultado.getString("area")));
             }
         } catch (SQLException e) {
             e.printStackTrace();

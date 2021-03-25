@@ -24,48 +24,47 @@
       <TextField fx:id="tfMail" layoutX="17.0" layoutY="141.0" prefHeight="25.0" prefWidth="191.0" />
       <ComboBox fx:id="cbCargos" layoutX="17.0" layoutY="192.0" prefHeight="25.0" prefWidth="191.0" />
       <Label layoutX="18.0" layoutY="176.0" text="Cargo" />
-      <TitledPane animated="false" layoutX="16.0" layoutY="226.0" prefHeight="128.0" prefWidth="92.0" text="Permisos">
+      <TitledPane animated="false" layoutX="16.0" layoutY="226.0" prefHeight="93.0" prefWidth="92.0" text="Permisos">
         <content>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="102.0" prefWidth="85.0">
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="72.0" prefWidth="90.0">
                <children>
-                  <RadioButton fx:id="rbAdmin" layoutX="8.0" layoutY="14.0" mnemonicParsing="false" text="Admin">
+                  <RadioButton fx:id="rbAdmin" layoutX="10.0" layoutY="11.0" mnemonicParsing="false" text="Admin">
                      <toggleGroup>
                         <ToggleGroup fx:id="permisos" />
                      </toggleGroup></RadioButton>
-                  <RadioButton fx:id="rbConsultor" layoutX="8.0" layoutY="38.0" mnemonicParsing="false" text="Consultor" toggleGroup="$permisos" />
-                  <RadioButton fx:id="rbMecanico" layoutX="9.0" layoutY="61.0" mnemonicParsing="false" text="Mecanico" toggleGroup="$permisos" />
+                  <RadioButton fx:id="rbMecanico" layoutX="10.0" layoutY="34.0" mnemonicParsing="false" text="Mecanico" toggleGroup="$permisos" />
                </children>
             </AnchorPane>
         </content>
       </TitledPane>
-      <TitledPane animated="false" layoutX="115.0" layoutY="226.0" prefHeight="128.0" prefWidth="92.0" text="Estado">
+      <TitledPane animated="false" layoutX="115.0" layoutY="226.0" prefHeight="93.0" prefWidth="92.0" text="Estado">
          <content>
             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="102.0" prefWidth="98.0">
                <children>
-                  <RadioButton fx:id="rbActivo" layoutX="8.0" layoutY="27.0" mnemonicParsing="false" text="Activo">
+                  <RadioButton fx:id="rbActivo" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" text="Activo">
                      <toggleGroup>
                         <ToggleGroup fx:id="estado" />
                      </toggleGroup></RadioButton>
-                  <RadioButton fx:id="rbInactivo" layoutX="8.0" layoutY="51.0" mnemonicParsing="false" text="Inactivo" toggleGroup="$estado" />
+                  <RadioButton fx:id="rbInactivo" layoutX="10.0" layoutY="34.0" mnemonicParsing="false" text="Inactivo" toggleGroup="$estado" />
                </children>
             </AnchorPane>
          </content>
       </TitledPane>
-      <Label layoutX="18.0" layoutY="364.0" text="Usuario" />
-      <TextField fx:id="tfUsuario" layoutX="17.0" layoutY="380.0" prefHeight="25.0" prefWidth="191.0" />
-      <Label layoutX="18.0" layoutY="415.0" text="Constraseña" />
-      <PasswordField fx:id="pfPassword" layoutX="18.0" layoutY="432.0" prefHeight="25.0" prefWidth="191.0" />
-      <ComboBox fx:id="cbAreas" layoutX="18.0" layoutY="483.0" prefHeight="25.0" prefWidth="191.0" />
-      <Label layoutX="19.0" layoutY="466.0" text="Area" />
-      <TableView layoutX="215.0" layoutY="25.0" prefHeight="483.0" prefWidth="414.0">
+      <Label layoutX="18.0" layoutY="329.0" text="Usuario" />
+      <TextField fx:id="tfUsuario" layoutX="17.0" layoutY="345.0" prefHeight="25.0" prefWidth="191.0" />
+      <Label layoutX="18.0" layoutY="380.0" text="Constraseña" />
+      <PasswordField fx:id="pfPassword" layoutX="18.0" layoutY="397.0" prefHeight="25.0" prefWidth="191.0" />
+      <ComboBox fx:id="cbAreas" layoutX="18.0" layoutY="448.0" prefHeight="25.0" prefWidth="191.0" />
+      <Label layoutX="19.0" layoutY="431.0" text="Area" />
+      <TableView fx:id="tblTrabajadores" layoutX="215.0" layoutY="25.0" prefHeight="483.0" prefWidth="411.0">
         <columns>
-          <TableColumn fx:id="clmnUsuario" prefWidth="138.0" text="Usuario" />
-          <TableColumn fx:id="clmnPermisos" prefWidth="108.0" text="Permisos" />
-            <TableColumn fx:id="clmnEstado" prefWidth="60.0" text="Estado" />
-            <TableColumn fx:id="clmnAreas" prefWidth="114.0" text="Area" />
+          <TableColumn fx:id="clmnUsuario" prefWidth="92.0" text="Usuario" />
+          <TableColumn fx:id="clmnPermisos" prefWidth="104.0" text="Permisos" />
+            <TableColumn fx:id="clmnEstado" prefWidth="95.0" text="Estado" />
+            <TableColumn fx:id="clmnAreas" prefWidth="129.0" text="Area" />
         </columns>
       </TableView>
-      <Button fx:id="btnGuardar" layoutX="633.0" layoutY="334.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="80.0" text="Guardar" />
+      <Button fx:id="btnGuardar" layoutX="633.0" layoutY="334.0" mnemonicParsing="false" onAction="#guardarRegistro" prefHeight="36.0" prefWidth="80.0" text="Guardar" />
       <Button fx:id="btnActualizar" layoutX="633.0" layoutY="380.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="80.0" text="Actualizar" />
       <Button fx:id="btnEliminar" layoutX="633.0" layoutY="426.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="80.0" text="Eliminar" />
       <Button fx:id="btnLimpiar" layoutX="633.0" layoutY="471.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="80.0" text="Limpiar" />
