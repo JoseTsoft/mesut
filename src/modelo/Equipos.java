@@ -5,6 +5,8 @@ import javafx.collections.ObservableList;
 
 import java.sql.*;
 
+
+
 public class Equipos {
 
     private IntegerProperty idEquipos;
@@ -16,8 +18,8 @@ public class Equipos {
     private StringProperty nroMotor;
     private StringProperty nroChasis;
     private StringProperty observaciones;
-    private DoubleProperty kilometraje;
-    private DoubleProperty horometro;
+    private IntegerProperty kilometraje;
+    private IntegerProperty horometro;
     private StringProperty estado;
 
 
@@ -25,8 +27,8 @@ public class Equipos {
                    String tipo, String marca,
                    String modelo, Integer año,
                    String nroMotor, String nroChasis,
-                   String observaciones, Double kilometraje,
-                   Double horometro, String estado)
+                   String observaciones, Integer kilometraje,
+                   Integer horometro, String estado)
     {
         this.idEquipos = new SimpleIntegerProperty(idEquipos);
         this.patente = new SimpleStringProperty(patente);
@@ -37,14 +39,15 @@ public class Equipos {
         this.nroMotor = new SimpleStringProperty(nroMotor);
         this.nroChasis = new SimpleStringProperty(nroChasis);
         this.observaciones = new SimpleStringProperty(observaciones);
-        this.kilometraje = new SimpleDoubleProperty(kilometraje);
-        this.horometro = new SimpleDoubleProperty(horometro);
+        this.kilometraje = new SimpleIntegerProperty(kilometraje);
+        this.horometro = new SimpleIntegerProperty(horometro);
         this.estado = new SimpleStringProperty(estado);
     }
 
     public Equipos (String marca){
         this.marca = new SimpleStringProperty(marca);
     }
+
 
     public int getIdEquipos() {
         return idEquipos.get();
@@ -125,22 +128,22 @@ public class Equipos {
     public void setObservaciones(String observaciones) {
         this.observaciones.set(observaciones);
     }
-    public double getKilometraje() {
+    public int getKilometraje() {
         return kilometraje.get();
     }
-    public DoubleProperty kilometrajeProperty() {
+    public IntegerProperty kilometrajeProperty() {
         return kilometraje;
     }
-    public void setKilometraje(double kilometraje) {
+    public void setKilometraje(int kilometraje) {
         this.kilometraje.set(kilometraje);
     }
-    public double getHorometro() {
+    public int getHorometro() {
         return horometro.get();
     }
-    public DoubleProperty horometroProperty() {
+    public IntegerProperty horometroProperty() {
         return horometro;
     }
-    public void setHorometro(double horometro) {
+    public void setHorometro(int horometro) {
         this.horometro.set(horometro);
     }
     public String getEstado() {
@@ -170,8 +173,8 @@ public class Equipos {
                                 resultado.getString("nroMotor"),
                                 resultado.getString("nroChasis"),
                                 resultado.getString("observaciones"),
-                                resultado.getDouble("kilometraje"),
-                                resultado.getDouble("horometro"),
+                                resultado.getInt("kilometraje"),
+                                resultado.getInt("horometro"),
                                 resultado.getString("estado")
                         )
                 );
@@ -182,24 +185,6 @@ public class Equipos {
 
     }
 
-    public static void llenarInformacionCombobox(Connection connection, ObservableList<Equipos> lista){
-        try {
-            Statement statement = connection.createStatement();
-            ResultSet resultado = statement.executeQuery("SELECT DISTINCT marca FROM equipos;");
-            while (resultado.next()){
-                lista.add(new Equipos(
-                        resultado.getString("marca")
-                ));
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
-
-    @Override
-    public String toString() {
-        return marca.get();
-    }
 
     public int guardarRegistro(Connection connection){
         try {
@@ -214,11 +199,11 @@ public class Equipos {
             return 0;
         }
     }
-    public int actualizarRegistro(Connection connection){
+
+    public int actualizarRegistro(Connection connection) {
         try {
             PreparedStatement statement = connection.prepareStatement(
-                    "UPDATE equipos " +
-                            "SET patente = ?, " +
+                    "UPDATE equipos SET patente = ?," +
                             "tipo = ?, " +
                             "marca = ?, " +
                             "modelo = ?, " +
@@ -226,12 +211,12 @@ public class Equipos {
                             "nroMotor = ?, " +
                             "nroChasis = ?, " +
                             "observaciones = ?, " +
-                            "kilometraje = ?, " +
+                            "kilometraje = ? ," +
                             "horometro = ?, " +
                             "estado = ? " +
                             "WHERE  idEquipos = ?");
             seteoStatement(statement);
-            statement.setInt(12,idEquipos.get());
+            statement.setInt(12, idEquipos.get());
             return statement.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -261,8 +246,8 @@ public class Equipos {
         statement.setString(6,nroMotor.get());
         statement.setString(7,nroChasis.get());
         statement.setString(8,observaciones.get());
-        statement.setDouble(9,kilometraje.get());
-        statement.setDouble(10,horometro.get());
+        statement.setInt(9,kilometraje.get());
+        statement.setInt(10,horometro.get());
         statement.setString(11,estado.get());
     }
 

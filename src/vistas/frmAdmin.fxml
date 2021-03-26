@@ -150,7 +150,7 @@
                               <Insets top="10.0" />
                            </VBox.margin>
                         </Button>
-                        <Button alignment="BASELINE_LEFT" mnemonicParsing="false" prefHeight="35.0" prefWidth="206.0" style="-fx-background-color: rgb(17,105,176);" styleClass="sidebarItem" text="Equipos" textFill="WHITE">
+                        <Button alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#abrirFormEquipos" prefHeight="35.0" prefWidth="206.0" style="-fx-background-color: rgb(17,105,176);" styleClass="sidebarItem" text="Equipos" textFill="WHITE">
                            <font>
                               <Font size="15.0" />
                            </font>
