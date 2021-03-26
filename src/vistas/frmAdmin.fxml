@@ -14,7 +14,7 @@
 
 <AnchorPane prefHeight="600.0" prefWidth="1000.0" styleClass="" stylesheets="@Style.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.frmAdminController">
    <children>
-      <BorderPane layoutX="218.0" layoutY="52.0" prefHeight="600.0" prefWidth="1000.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <BorderPane fx:id="mainPane" layoutX="218.0" layoutY="52.0" prefHeight="600.0" prefWidth="1000.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <top>
             <AnchorPane prefHeight="75.0" prefWidth="1000.0" style="-fx-background-color: rgb(197,197,197);" BorderPane.alignment="CENTER">
                <children>
@@ -256,9 +256,6 @@
                </children>
             </AnchorPane>
          </left>
-         <center>
-            <AnchorPane prefHeight="525.0" prefWidth="716.0" BorderPane.alignment="CENTER" />
-         </center>
       </BorderPane>
    </children>
 </AnchorPane>

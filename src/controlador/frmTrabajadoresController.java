@@ -13,6 +13,7 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import modelo.Areas;
@@ -29,34 +30,56 @@ import java.util.ResourceBundle;
 public class frmTrabajadoresController implements Initializable {
 
     //Campos
-    @FXML private TextField tfID;
-    @FXML private TextField tfNombre;
-    @FXML private TextField tfApellido;
-    @FXML private TextField tfMail;
-    @FXML private ComboBox<Cargos> cbCargos;
-    @FXML private RadioButton rbAdmin;
-    @FXML private RadioButton rbMecanico;
-    @FXML private RadioButton rbActivo;
-    @FXML private RadioButton rbInactivo;
-    @FXML private TextField tfUsuario;
-    @FXML private PasswordField pfPassword;
-    @FXML private ComboBox<Areas> cbAreas;
-    @FXML private TableView<Trabajadores> tblTrabajadores;
+    @FXML
+    private TextField tfID;
+    @FXML
+    private TextField tfNombre;
+    @FXML
+    private TextField tfApellido;
+    @FXML
+    private TextField tfMail;
+    @FXML
+    private ComboBox<Cargos> cbCargos;
+    @FXML
+    private RadioButton rbAdmin;
+    @FXML
+    private RadioButton rbMecanico;
+    @FXML
+    private RadioButton rbActivo;
+    @FXML
+    private RadioButton rbInactivo;
+    @FXML
+    private TextField tfUsuario;
+    @FXML
+    private PasswordField pfPassword;
+    @FXML
+    private ComboBox<Areas> cbAreas;
+    @FXML
+    private TableView<Trabajadores> tblTrabajadores;
 
     //Imagenes
-    @FXML private ImageView logo;
+    @FXML
+    private ImageView logo;
 
     //Botones
-    @FXML private Button btnGuardar;
-    @FXML private Button btnActualizar;
-    @FXML private Button btnEliminar;
-    @FXML private Button btnLimpiar;
+    @FXML
+    private Button btnGuardar;
+    @FXML
+    private Button btnActualizar;
+    @FXML
+    private Button btnEliminar;
+    @FXML
+    private Button btnLimpiar;
 
     //Columnas
-    @FXML private TableColumn<Trabajadores, String> clmnUsuario;
-    @FXML private TableColumn<Trabajadores, String> clmnPermisos;
-    @FXML private TableColumn<Trabajadores, String> clmnEstado;
-    @FXML private TableColumn<Areas, String> clmnAreas;
+    @FXML
+    private TableColumn<Trabajadores, String> clmnUsuario;
+    @FXML
+    private TableColumn<Trabajadores, String> clmnPermisos;
+    @FXML
+    private TableColumn<Trabajadores, String> clmnEstado;
+    @FXML
+    private TableColumn<Areas, String> clmnAreas;
 
     //Colecciones
     private ObservableList<Cargos> listaCargos;
@@ -73,6 +96,7 @@ public class frmTrabajadoresController implements Initializable {
         Image imagenLogoMesut = new Image(archivoLogoMesut.toURI().toString());
         logo.setImage(imagenLogoMesut);
 
+
         conexion = new Conexion();
         try {
             conexion.establecerConexion();
@@ -84,9 +108,10 @@ public class frmTrabajadoresController implements Initializable {
         gestionarEventos();
 
         conexion.cerrarConexion();
+
     }
 
-    public void cargarCombobox(){
+    public void cargarCombobox() {
         try {
             listaCargos = FXCollections.observableArrayList();
             listaAreas = FXCollections.observableArrayList();
@@ -102,7 +127,7 @@ public class frmTrabajadoresController implements Initializable {
     public void cargarTableView() {
         try {
             listaTrabajadores = FXCollections.observableArrayList();
-            Trabajadores.llenarInformacion(conexion.getConnection(),listaTrabajadores);
+            Trabajadores.llenarInformacion(conexion.getConnection(), listaTrabajadores);
             tblTrabajadores.setItems(listaTrabajadores);
             clmnUsuario.setCellValueFactory(new PropertyValueFactory<Trabajadores, String>("usuario"));
             clmnPermisos.setCellValueFactory(new PropertyValueFactory<Trabajadores, String>("permisos"));
@@ -114,29 +139,29 @@ public class frmTrabajadoresController implements Initializable {
 
     }
 
-    public void gestionarEventos(){
+    public void gestionarEventos() {
         tblTrabajadores.getSelectionModel().selectedItemProperty().addListener(
                 new ChangeListener<Trabajadores>() {
                     @Override
                     public void changed(ObservableValue<? extends Trabajadores> observableValue,
                                         Trabajadores valorAnterior, Trabajadores valorSeleccionado) {
-                        if(valorSeleccionado != null){
+                        if (valorSeleccionado != null) {
                             tfID.setText(String.valueOf(valorSeleccionado.getIdTrabajadores()));
                             tfNombre.setText(valorSeleccionado.getNombre());
                             tfApellido.setText(valorSeleccionado.getApellido());
                             tfMail.setText(valorSeleccionado.getMail());
                             cbCargos.setValue(valorSeleccionado.getCargos());
-                            if(valorSeleccionado.getPermisos().equals("admin")){
+                            if (valorSeleccionado.getPermisos().equals("admin")) {
                                 rbAdmin.setSelected(true);
                                 rbMecanico.setSelected(false);
-                            }else if (valorSeleccionado.getPermisos().equals("mecanico")){
+                            } else if (valorSeleccionado.getPermisos().equals("mecanico")) {
                                 rbAdmin.setSelected(false);
                                 rbMecanico.setSelected(true);
                             }
-                            if(valorSeleccionado.getEstado().equals("activo")){
+                            if (valorSeleccionado.getEstado().equals("activo")) {
                                 rbActivo.setSelected(true);
                                 rbInactivo.setSelected(false);
-                            }else if (valorSeleccionado.getEstado().equals("inactivo")){
+                            } else if (valorSeleccionado.getEstado().equals("inactivo")) {
                                 rbActivo.setSelected(false);
                                 rbInactivo.setSelected(true);
                             }
@@ -157,11 +182,10 @@ public class frmTrabajadoresController implements Initializable {
 
     @FXML
     public void guardarRegistro() throws ClassNotFoundException, SQLException, IOException {
-        if(tfNombre.getText().equals("") || tfApellido.getText().equals("") ||  tfMail.getText().equals("")
+        if (tfNombre.getText().isEmpty() || tfApellido.getText().isEmpty() || tfMail.getText().isEmpty()
                 || cbCargos.getSelectionModel().getSelectedItem().equals("")
-                || tfUsuario.getText().equals("") ||  pfPassword.getText().equals("")
-                || cbAreas.getSelectionModel().getSelectedItem().equals(""))
-        {
+                || tfUsuario.getText().isEmpty() || pfPassword.getText().isEmpty()
+                || cbAreas.getSelectionModel().getSelectedItem().equals("")) {
 
             Alert mensaje = new Alert(Alert.AlertType.ERROR);
             mensaje.setTitle("Error al registrar");
@@ -184,14 +208,12 @@ public class frmTrabajadoresController implements Initializable {
 
             if (resultado == 1) {
                 listaTrabajadores.add(t);
-                abrirYCerrarForm();
                 Alert mensaje = new Alert(Alert.AlertType.INFORMATION);
                 mensaje.setTitle("Registro agregado");
                 mensaje.setContentText("El registro ha sido agregado exitosamente");
                 mensaje.setHeaderText("Resultado");
                 mensaje.show();
             }
-
         }
     }
 
@@ -211,8 +233,8 @@ public class frmTrabajadoresController implements Initializable {
         int resultado = t.actualizarRegistro(conexion.getConnection());
         conexion.cerrarConexion();
 
-        if(resultado == 1){
-            listaTrabajadores.set(tblTrabajadores.getSelectionModel().getSelectedIndex(),t);
+        if (resultado == 1) {
+            listaTrabajadores.set(tblTrabajadores.getSelectionModel().getSelectedIndex(), t);
             Alert mensaje = new Alert(Alert.AlertType.INFORMATION);
             mensaje.setTitle("Registro actualizado");
             mensaje.setContentText("El registro ha sido actualizado exitosamente");
@@ -220,6 +242,7 @@ public class frmTrabajadoresController implements Initializable {
             mensaje.show();
         }
     }
+
     @FXML
     public void eliminarRegistro() throws ClassNotFoundException {
         conexion.establecerConexion();
@@ -237,7 +260,7 @@ public class frmTrabajadoresController implements Initializable {
     }
 
     @FXML
-    public void limpiarComponentes(){
+    public void limpiarComponentes() {
         tfID.setText(null);
         tfNombre.setText(null);
         tfApellido.setText(null);
@@ -254,16 +277,6 @@ public class frmTrabajadoresController implements Initializable {
         btnGuardar.setDisable(false);
         btnEliminar.setDisable(true);
         btnActualizar.setDisable(true);
-    }
-
-    public void abrirYCerrarForm() throws IOException {
-        Stage stage = (Stage) btnGuardar.getScene().getWindow();
-        stage.close();
-        Parent root = FXMLLoader.load(getClass().getResource("../vistas/frmTrabajadores.fxml"));
-        Stage trabajadoresStage = new Stage();
-        trabajadoresStage.initStyle(StageStyle.UNDECORATED);
-        trabajadoresStage.setScene(new Scene(root,  716, 525));
-        trabajadoresStage.show();
     }
 
 }

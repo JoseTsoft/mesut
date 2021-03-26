@@ -12,6 +12,8 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.util.Duration;
@@ -42,6 +44,7 @@ public class frmAdminController implements Initializable {
     @FXML private ImageView workerView;
     @FXML private ImageView clientView;
     @FXML private ImageView truckView;
+    @FXML private BorderPane mainPane;
 
     //botones
     @FXML private Button btnAddTrabajador;
@@ -125,14 +128,11 @@ public class frmAdminController implements Initializable {
         //==============================================================================================================
     }
     @FXML
-    void abrirFormTrabajadores(ActionEvent event) throws IOException {
-        Stage stage = (Stage) btnAddTrabajador.getScene().getWindow();
-        stage.close();
-        Parent root = FXMLLoader.load(getClass().getResource("../vistas/frmTrabajadores.fxml"));
-        Stage adminStage = new Stage();
-        adminStage.initStyle(StageStyle.UNDECORATED);
-        adminStage.setScene(new Scene(root,   716, 525));
-        adminStage.show();
+    public void abrirFormTrabajadores() throws IOException {
+        System.out.println("Abriendo form trabajadores");
+        FxmlLoader ob = new FxmlLoader();
+        Pane view = ob.getPane("frmTrabajadores");
+        mainPane.setCenter(view);
     }
 
 

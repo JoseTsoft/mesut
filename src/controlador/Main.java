@@ -12,11 +12,11 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("../vistas/frmLogin.fxml"));
-        /*Parent root = FXMLLoader.load(getClass().getResource("Trabajadores/frmTrabajadores.fxml"));*/
+        /*Parent root = FXMLLoader.load(getClass().getResource("../vistas/frmLogin.fxml"));*/
+        Parent root = FXMLLoader.load(getClass().getResource("../vistas/frmEquipos.fxml"));
         primaryStage.initStyle(StageStyle.UNDECORATED);
-        primaryStage.setScene(new Scene(root, 520, 400));
-        /*primaryStage.setScene(new Scene(root, 716, 525));*/
+        /*primaryStage.setScene(new Scene(root, 520, 400));*/
+        primaryStage.setScene(new Scene(root, 800, 525));
         primaryStage.show();
     }
 
