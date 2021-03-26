@@ -11,7 +11,8 @@ import java.sql.*;
 public class Trabajadores {
 
 
-    public Trabajadores(Integer idTrabajadores, String nombre, String apellido, String mail, Cargos cargos, String usuario, String password, String permisos, String estado, Areas area) {
+    public Trabajadores(Integer idTrabajadores, String nombre, String apellido, String mail, Cargos cargos,
+                        String usuario, String password, String permisos, String estado, Areas area) {
         this.idTrabajadores = new SimpleIntegerProperty(idTrabajadores);
         this.nombre = new SimpleStringProperty(nombre);
         this.apellido = new SimpleStringProperty(apellido);
@@ -124,7 +125,9 @@ public class Trabajadores {
         try {
             Statement statement = connection.createStatement();
             ResultSet resultado = statement.executeQuery(
-                    "SELECT * FROM trabajadores t INNER JOIN areas a ON (t.area = a.area) INNER JOIN cargos c ON (t.cargos = c.cargos)");
+                    "SELECT * FROM trabajadores t " +
+                            "INNER JOIN areas a ON (t.area = a.area) " +
+                            "INNER JOIN cargos c ON (t.cargos = c.cargos)");
             while (resultado.next()) {
                 lista.add(
                         new Trabajadores(
@@ -152,20 +155,60 @@ public class Trabajadores {
             PreparedStatement statement = connection.prepareStatement("INSERT INTO trabajadores " +
                     "(NOMBRE, APELLIDO, MAIL, cargos, PERMISOS, USUARIO, CONTRASEÑA, ESTADO, AREA) " +
                     "VALUES (?,?,?,?,?,?,?,?,?)");
-            statement.setString(1,nombre.get());
-            statement.setString(2,apellido.get());
-            statement.setString(3,mail.get());
-            statement.setString(4,cargos.getCargos());
-            statement.setString(5,permisos.get());
-            statement.setString(6,usuario.get());
-            statement.setString(7,password.get());
-            statement.setString(8,estado.get());
-            statement.setString(9,area.getArea());
+            seteoStatement(statement);
+            return statement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return 0;
+        }
 
+    }
+    public int actualizarRegistro(Connection connection) throws SQLException {
+        try {
+            PreparedStatement statement = connection.prepareStatement(
+                    "UPDATE trabajadores " +
+                    "SET nombre = ?, " +
+                    "apellido = ?, " +
+                    "mail = ?, " +
+                    "cargos = ?, " +
+                    "permisos = ?, "+
+                    "usuario = ?, " +
+                    "contraseña = ?, " +
+                    "estado = ?, " +
+                    "area = ? " +
+                    "WHERE idTrabajadores = ?");
+
+            seteoStatement(statement);
+            statement.setInt(10,idTrabajadores.get());
             return statement.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
             return 0;
         }
     }
+    public int eliminarRegistro(Connection connection){
+        try {
+            PreparedStatement statement = connection.prepareStatement(
+                    "DELETE FROM trabajadores WHERE idTrabajadores = ?");
+            statement.setInt(1,idTrabajadores.get());
+            return statement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return 0;
+        }
+    }
+
+    private void seteoStatement(PreparedStatement statement) throws SQLException {
+        statement.setString(1,nombre.get());
+        statement.setString(2,apellido.get());
+        statement.setString(3,mail.get());
+        statement.setString(4,cargos.getCargos());
+        statement.setString(5,permisos.get());
+        statement.setString(6,usuario.get());
+        statement.setString(7,password.get());
+        statement.setString(8,estado.get());
+        statement.setString(9,area.getArea());
+    }
+
+
 }

@@ -1,4 +1,4 @@
-package controlador.Login;
+package controlador;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -83,8 +83,6 @@ public class frmLoginController implements Initializable {
 
                 if (permiso.equals("admin") && estado.equals("activo")) {
                     abrirPanelAdmin();
-                } else if (permiso.equals("consultor") && estado.equals("activo")) {
-                    abrirPanelConsultor();
                 } else if (permiso.equals("mecanico") && estado.equals("activo")) {
                     abrirPanelMecanico();
                 } else {
@@ -104,27 +102,17 @@ public class frmLoginController implements Initializable {
     public void abrirPanelAdmin() throws IOException {
         Stage stage = (Stage) btnIngresar.getScene().getWindow();
         stage.close();
-        Parent root = FXMLLoader.load(getClass().getResource("../Panel/Admin/frmAdmin.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("../vistas/frmAdmin.fxml"));
         Stage adminStage = new Stage();
         adminStage.initStyle(StageStyle.UNDECORATED);
         adminStage.setScene(new Scene(root,  1000, 600));
         adminStage.show();
     }
 
-    public void abrirPanelConsultor() throws IOException {
-        Stage stage = (Stage) btnIngresar.getScene().getWindow();
-        stage.close();
-        Parent root = FXMLLoader.load(getClass().getResource("../Panel/Consultor/frmConsultor.fxml"));
-        Stage adminStage = new Stage();
-        adminStage.initStyle(StageStyle.UNDECORATED);
-        adminStage.setScene(new Scene(root, 1000, 600));
-        adminStage.show();
-    }
-
     public void abrirPanelMecanico() throws IOException {
         Stage stage = (Stage) btnIngresar.getScene().getWindow();
         stage.close();
-        Parent root = FXMLLoader.load(getClass().getResource("../Panel/Mecanico/frmMecanico.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("../vistas/frmMecanico.fxml"));
         Stage adminStage = new Stage();
         adminStage.initStyle(StageStyle.UNDECORATED);
         adminStage.setScene(new Scene(root, 1000, 600));

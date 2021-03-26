@@ -1,4 +1,4 @@
-package controlador.Productos;
+package controlador;
 
 public class frmProductosController {
 }

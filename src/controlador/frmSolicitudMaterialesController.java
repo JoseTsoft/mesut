@@ -1,4 +1,4 @@
-package controlador.SolicitudMateriales;
+package controlador;
 
 public class frmSolicitudMaterialesController {
 }

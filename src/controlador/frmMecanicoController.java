@@ -1,4 +1,4 @@
-package controlador.Panel.Mecanico;
+package controlador;
 
 public class frmMecanicoController {
 }

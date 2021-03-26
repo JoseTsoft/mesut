@@ -1,4 +1,4 @@
-package controlador.Pedidos;
+package controlador;
 
 public class frmPedidosController {
 }

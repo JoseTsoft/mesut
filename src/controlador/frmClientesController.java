@@ -1,4 +1,4 @@
-package controlador.Clientes;
+package controlador;
 
 public class frmClientesController {
 }

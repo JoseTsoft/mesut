@@ -1,4 +1,4 @@
-package controlador.GestionVehiculos;
+package controlador;
 
 public class frmGestionVehiculosController {
 }

@@ -1030,7 +1030,7 @@ SELECT|sys.sys_config
       <NotNull>1</NotNull>
       <SequenceIdentity>null</SequenceIdentity>
     </column>
-    <column id="315" parent="289" name="Patente">
+    <column id="315" parent="289" name="patente">
       <Position>2</Position>
       <DataType>varchar(10)|0s</DataType>
       <NotNull>1</NotNull>
@@ -1065,7 +1065,7 @@ SELECT|sys.sys_config
       <DataType>varchar(45)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="322" parent="289" name="Observaciones">
+    <column id="322" parent="289" name="observaciones">
       <Position>9</Position>
       <DataType>longtext|0s</DataType>
     </column>
@@ -1079,306 +1079,311 @@ SELECT|sys.sys_config
       <DataType>double|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="325" parent="289" name="Patente_UNIQUE">
-      <ColNames>Patente</ColNames>
+    <column id="325" parent="289" name="estado">
+      <Position>12</Position>
+      <Comment>activo</Comment>
+      <DataType>varchar(20)|0s</DataType>
+    </column>
+    <index id="326" parent="289" name="Patente_UNIQUE">
+      <ColNames>patente</ColNames>
       <Unique>1</Unique>
       <Type>btree</Type>
     </index>
-    <index id="326" parent="289" name="nroMotor_UNIQUE">
+    <index id="327" parent="289" name="nroMotor_UNIQUE">
       <ColNames>nroMotor</ColNames>
       <Unique>1</Unique>
       <Type>btree</Type>
     </index>
-    <index id="327" parent="289" name="nroChasis_UNIQUE">
+    <index id="328" parent="289" name="nroChasis_UNIQUE">
       <ColNames>nroChasis</ColNames>
       <Unique>1</Unique>
       <Type>btree</Type>
     </index>
-    <key id="328" parent="289" name="PRIMARY">
+    <key id="329" parent="289" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>idEquipos</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="329" parent="289" name="Patente_UNIQUE">
-      <ColNames>Patente</ColNames>
+    <key id="330" parent="289" name="Patente_UNIQUE">
+      <ColNames>patente</ColNames>
       <UnderlyingIndexName>Patente_UNIQUE</UnderlyingIndexName>
     </key>
-    <key id="330" parent="289" name="nroMotor_UNIQUE">
+    <key id="331" parent="289" name="nroMotor_UNIQUE">
       <ColNames>nroMotor</ColNames>
       <UnderlyingIndexName>nroMotor_UNIQUE</UnderlyingIndexName>
     </key>
-    <key id="331" parent="289" name="nroChasis_UNIQUE">
+    <key id="332" parent="289" name="nroChasis_UNIQUE">
       <ColNames>nroChasis</ColNames>
       <UnderlyingIndexName>nroChasis_UNIQUE</UnderlyingIndexName>
     </key>
-    <column id="332" parent="290" name="idPedidos">
+    <column id="333" parent="290" name="idPedidos">
       <Position>1</Position>
       <DataType>int|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>null</SequenceIdentity>
     </column>
-    <column id="333" parent="290" name="idSolicitudesMateriales">
+    <column id="334" parent="290" name="idSolicitudesMateriales">
       <Position>2</Position>
       <DataType>int|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="334" parent="290" name="cantidad">
+    <column id="335" parent="290" name="cantidad">
       <Position>3</Position>
       <DataType>varchar(45)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="335" parent="290" name="tipo">
+    <column id="336" parent="290" name="tipo">
       <Position>4</Position>
       <DataType>varchar(45)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="336" parent="290" name="idProductos">
+    <column id="337" parent="290" name="idProductos">
       <Position>5</Position>
       <DataType>int|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="337" parent="290" name="fk_Pedidos_SolicitudesMateriales1_idx">
+    <index id="338" parent="290" name="fk_Pedidos_SolicitudesMateriales1_idx">
       <ColNames>idSolicitudesMateriales</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="338" parent="290" name="fk_Pedidos_Productos1_idx">
+    <index id="339" parent="290" name="fk_Pedidos_Productos1_idx">
       <ColNames>idProductos</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="339" parent="290" name="PRIMARY">
+    <key id="340" parent="290" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>idPedidos</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="340" parent="290" name="fk_Pedidos_SolicitudesMateriales1">
+    <foreign-key id="341" parent="290" name="fk_Pedidos_SolicitudesMateriales1">
       <ColNames>idSolicitudesMateriales</ColNames>
       <RefTableName>solicitudesmateriales</RefTableName>
       <RefColNames>idSolicitudesMateriales</RefColNames>
     </foreign-key>
-    <foreign-key id="341" parent="290" name="fk_Pedidos_Productos1">
+    <foreign-key id="342" parent="290" name="fk_Pedidos_Productos1">
       <ColNames>idProductos</ColNames>
       <RefTableName>productos</RefTableName>
       <RefColNames>idProductos</RefColNames>
     </foreign-key>
-    <column id="342" parent="291" name="idProductos">
+    <column id="343" parent="291" name="idProductos">
       <Position>1</Position>
       <DataType>int|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>null</SequenceIdentity>
     </column>
-    <column id="343" parent="291" name="codigoSistema">
+    <column id="344" parent="291" name="codigoSistema">
       <Position>2</Position>
       <DataType>varchar(45)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="344" parent="291" name="tipoActivo">
+    <column id="345" parent="291" name="tipoActivo">
       <Position>3</Position>
       <DataType>varchar(45)|0s</DataType>
       <NotNull>1</NotNull>
       <Collation>armscii8_general_ci</Collation>
     </column>
-    <column id="345" parent="291" name="rubro">
+    <column id="346" parent="291" name="rubro">
       <Position>4</Position>
       <DataType>varchar(45)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="346" parent="291" name="familiaPrimaria">
+    <column id="347" parent="291" name="familiaPrimaria">
       <Position>5</Position>
       <DataType>varchar(45)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="347" parent="291" name="familiaSecundaria">
+    <column id="348" parent="291" name="familiaSecundaria">
       <Position>6</Position>
       <DataType>varchar(45)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="348" parent="291" name="descripcion">
+    <column id="349" parent="291" name="descripcion">
       <Position>7</Position>
       <DataType>varchar(45)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="349" parent="291" name="marca">
+    <column id="350" parent="291" name="marca">
       <Position>8</Position>
       <DataType>varchar(45)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="350" parent="291" name="unidad">
+    <column id="351" parent="291" name="unidad">
       <Position>9</Position>
       <DataType>varchar(45)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="351" parent="291" name="empresa">
+    <column id="352" parent="291" name="empresa">
       <Position>10</Position>
       <DataType>varchar(45)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <key id="352" parent="291" name="PRIMARY">
+    <key id="353" parent="291" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>idProductos</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="353" parent="292" name="idSolicitudesMateriales">
+    <column id="354" parent="292" name="idSolicitudesMateriales">
       <Position>1</Position>
       <DataType>int|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>null</SequenceIdentity>
     </column>
-    <column id="354" parent="292" name="idTrabajadores">
+    <column id="355" parent="292" name="idTrabajadores">
       <Position>2</Position>
       <DataType>int|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="355" parent="292" name="fechaRegistro">
+    <column id="356" parent="292" name="fechaRegistro">
       <Position>3</Position>
       <DataType>datetime|0s</DataType>
       <DefaultExpression>(CURRENT_TIMESTAMP)</DefaultExpression>
     </column>
-    <column id="356" parent="292" name="idEquipos">
+    <column id="357" parent="292" name="idEquipos">
       <Position>4</Position>
       <DataType>int|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="357" parent="292" name="idClientes">
+    <column id="358" parent="292" name="idClientes">
       <Position>5</Position>
       <DataType>int|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="358" parent="292" name="tipoTrabajo">
+    <column id="359" parent="292" name="tipoTrabajo">
       <Position>6</Position>
       <DataType>varchar(45)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="359" parent="292" name="descripcionTrabajo">
+    <column id="360" parent="292" name="descripcionTrabajo">
       <Position>7</Position>
       <DataType>longtext|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="360" parent="292" name="estadoSolicitud">
+    <column id="361" parent="292" name="estadoSolicitud">
       <Position>8</Position>
       <DataType>varchar(45)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="361" parent="292" name="observaciones">
+    <column id="362" parent="292" name="observaciones">
       <Position>9</Position>
       <DataType>longtext|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="362" parent="292" name="porcentajeAvance">
+    <column id="363" parent="292" name="porcentajeAvance">
       <Position>10</Position>
       <DataType>decimal(10)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="363" parent="292" name="estadoMecanico">
+    <column id="364" parent="292" name="estadoMecanico">
       <Position>11</Position>
       <DataType>varchar(45)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="364" parent="292" name="fechaActualizacion">
+    <column id="365" parent="292" name="fechaActualizacion">
       <Position>12</Position>
       <DataType>datetime|0s</DataType>
     </column>
-    <index id="365" parent="292" name="fk_SolicitudesMateriales_Trabajadores1_idx">
+    <index id="366" parent="292" name="fk_SolicitudesMateriales_Trabajadores1_idx">
       <ColNames>idTrabajadores</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="366" parent="292" name="fk_SolicitudesMateriales_Equipos1_idx">
+    <index id="367" parent="292" name="fk_SolicitudesMateriales_Equipos1_idx">
       <ColNames>idEquipos</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="367" parent="292" name="fk_SolicitudesMateriales_Clientes1_idx">
+    <index id="368" parent="292" name="fk_SolicitudesMateriales_Clientes1_idx">
       <ColNames>idClientes</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="368" parent="292" name="PRIMARY">
+    <key id="369" parent="292" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>idSolicitudesMateriales</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="369" parent="292" name="fk_SolicitudesMateriales_Trabajadores1">
+    <foreign-key id="370" parent="292" name="fk_SolicitudesMateriales_Trabajadores1">
       <ColNames>idTrabajadores</ColNames>
       <RefTableName>trabajadores</RefTableName>
       <RefColNames>idTrabajadores</RefColNames>
     </foreign-key>
-    <foreign-key id="370" parent="292" name="fk_SolicitudesMateriales_Equipos1">
+    <foreign-key id="371" parent="292" name="fk_SolicitudesMateriales_Equipos1">
       <ColNames>idEquipos</ColNames>
       <RefTableName>equipos</RefTableName>
       <RefColNames>idEquipos</RefColNames>
     </foreign-key>
-    <foreign-key id="371" parent="292" name="fk_SolicitudesMateriales_Clientes1">
+    <foreign-key id="372" parent="292" name="fk_SolicitudesMateriales_Clientes1">
       <ColNames>idClientes</ColNames>
       <RefTableName>clientes</RefTableName>
       <RefColNames>idClientes</RefColNames>
     </foreign-key>
-    <column id="372" parent="293" name="idTrabajadores">
+    <column id="373" parent="293" name="idTrabajadores">
       <Position>1</Position>
       <DataType>int|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>null</SequenceIdentity>
     </column>
-    <column id="373" parent="293" name="nombre">
+    <column id="374" parent="293" name="nombre">
       <Position>2</Position>
       <DataType>varchar(45)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="374" parent="293" name="apellido">
+    <column id="375" parent="293" name="apellido">
       <Position>3</Position>
       <DataType>varchar(45)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="375" parent="293" name="mail">
+    <column id="376" parent="293" name="mail">
       <Position>4</Position>
       <DataType>varchar(45)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="376" parent="293" name="cargos">
+    <column id="377" parent="293" name="cargos">
       <Position>5</Position>
       <DataType>varchar(45)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="377" parent="293" name="permisos">
+    <column id="378" parent="293" name="permisos">
       <Position>6</Position>
       <DataType>varchar(45)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="378" parent="293" name="usuario">
+    <column id="379" parent="293" name="usuario">
       <Position>7</Position>
       <DataType>varchar(45)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="379" parent="293" name="contraseña">
+    <column id="380" parent="293" name="contraseña">
       <Position>8</Position>
       <DataType>varchar(45)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="380" parent="293" name="estado">
+    <column id="381" parent="293" name="estado">
       <Position>9</Position>
       <DataType>varchar(45)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="381" parent="293" name="area">
+    <column id="382" parent="293" name="area">
       <Position>10</Position>
       <DataType>varchar(45)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="382" parent="293" name="usuarioTrabajador_UNIQUE">
+    <index id="383" parent="293" name="usuarioTrabajador_UNIQUE">
       <ColNames>usuario</ColNames>
       <Unique>1</Unique>
       <Type>btree</Type>
     </index>
-    <index id="383" parent="293" name="fk_Trabajadores_Areas1_idx">
+    <index id="384" parent="293" name="fk_Trabajadores_Areas1_idx">
       <ColNames>area</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="384" parent="293" name="PRIMARY">
+    <key id="385" parent="293" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>idTrabajadores</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="385" parent="293" name="usuarioTrabajador_UNIQUE">
+    <key id="386" parent="293" name="usuarioTrabajador_UNIQUE">
       <ColNames>usuario</ColNames>
       <UnderlyingIndexName>usuarioTrabajador_UNIQUE</UnderlyingIndexName>
     </key>
-    <foreign-key id="386" parent="293" name="fk_Trabajadores_Areas1">
+    <foreign-key id="387" parent="293" name="fk_Trabajadores_Areas1">
       <ColNames>area</ColNames>
       <RefTableName>areas</RefTableName>
       <RefColNames>area</RefColNames>
