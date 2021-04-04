@@ -91,7 +91,7 @@
                   <Insets right="5.0" />
                </GridPane.margin>
             </Label>
-            <TextField fx:id="tfID" GridPane.columnIndex="1" />
+            <TextField fx:id="tfID" editable="false" GridPane.columnIndex="1" />
             <TextField fx:id="tfPatente" GridPane.columnIndex="1" GridPane.rowIndex="1" />
             <TextField fx:id="tfTipo" GridPane.columnIndex="1" GridPane.rowIndex="2" />
             <TextField fx:id="tfModelo" GridPane.columnIndex="1" GridPane.rowIndex="4" />

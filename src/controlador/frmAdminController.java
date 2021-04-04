@@ -143,4 +143,13 @@ public class frmAdminController implements Initializable {
     }
 
 
+    @FXML
+    public void abrirFormClientes() throws IOException {
+        System.out.println("Abriendo form Equipos");
+        FxmlLoader ob = new FxmlLoader();
+        Pane view = ob.getPane("frmClientes");
+        mainPane.setCenter(view);
+    }
+
+
 }

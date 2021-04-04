@@ -129,8 +129,8 @@ public class Clientes {
     public int guardarRegistro(Connection connection) throws SQLException {
         try {
             PreparedStatement statement = connection.prepareStatement("INSERT INTO clientes " +
-                    "(nombreEmpresa, rutEmpresa, telefono, nombre, apellido, mail) " +
-                    "VALUES (?,?,?,?,?,?)");
+                    "(nombreEmpresa, rutEmpresa, telefono, nombre, apellido, mail, fechaRegistro) " +
+                    "VALUES (?,?,?,?,?,?, ?)");
 
             seteoStatement(statement);
             return statement.executeUpdate();
@@ -150,11 +150,12 @@ public class Clientes {
                             "telefono = ?, " +
                             "nombre = ?, " +
                             "apellido = ?, " +
-                            "mail = ?" +
+                            "mail = ?, " +
+                            "fechaRegistro = ? " +
                             "WHERE idClientes = ?");
 
             seteoStatement(statement);
-            statement.setInt(7,idClientes.get());
+            statement.setInt(8,idClientes.get());
             return statement.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -183,5 +184,6 @@ public class Clientes {
         statement.setString(4,nombre.get());
         statement.setString(5,apellido.get());
         statement.setString(6,mail.get());
+        statement.setDate(7,fechaRegistro);
     }
 }
